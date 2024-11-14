@@ -99,6 +99,7 @@
 
 .single-content {
     font-size: 1em;
+    width: 100%;
     color: #444;
     background-color: #fff;
     padding: 20px;
@@ -125,7 +126,7 @@
 }
 
 .single-content a {
-    color: #4CAF50;
+    color: rgb(200, 150, 70);
     text-decoration: none;
 }
 
@@ -247,6 +248,68 @@
 }
 
 .woocommerce ul.products li.product a img {
-     height: 120px;
-}   
+    height: 120px;
+}
 
+.sidebar {
+    width: 100%;
+}
+
+.site-main {
+    width: 85%;
+    margin: 0 auto;
+}
+
+nav.woocommerce-MyAccount-navigation ul {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+nav.woocommerce-MyAccount-navigation ul li {
+    border: 1px solid rgb(200, 150, 70);
+    border-radius: 20px;
+    width: 150px;
+    text-align: center;
+    padding: 10px;
+}
+
+nav.woocommerce-MyAccount-navigation ul li:hover {
+    border: 1px solid #fff;
+}
+
+nav.woocommerce-MyAccount-navigation {
+    display: contents;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content {
+    text-align: center;
+    width: 100%;
+}
+
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+    font-size: 15px;
+    height: 35px;
+}
+
+.woocommerce-Button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: 1.5px solid rgb(200, 150, 70);
+    border-radius: 2px;
+    color: rgb(200, 150, 70);
+}
+
+.woocommerce-Button:hover {
+    border: 1.5px solid rgb(200, 150, 70);
+    background: rgb(200, 150, 70);
+    color: #fff;
+}
+
+.woocommerce #review_form #respond {
+    border: 1px solid rgb(203, 199, 199);
+    padding: 20px;
+}
