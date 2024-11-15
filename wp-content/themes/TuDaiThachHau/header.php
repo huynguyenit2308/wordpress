@@ -89,12 +89,9 @@
                         </ul>
                     </div>
                     <div style="display: flex; align-items: center; gap: 10px">
-                        <form action="giuong.html" class="form-nav">
-                            <input class="input-nav" type="text" placeholder="Tìm sản phẩm" required>
-                            <button class="input-nav" type="submit">
-                                <img src="<?php echo get_theme_file_uri() . '/assets/search.png'; ?>" alt="Tìm kiếm" width="20">
-                            </button>
-                        </form>
+                        
+                        <?php get_template_part('search'); ?>
+
                         <div>
                             <a href="<?php echo site_url('gio-hang'); ?>">
                                 <img src="<?php echo get_theme_file_uri() . '/assets/giohang.png' ?>" alt="loadding..." width="20">
