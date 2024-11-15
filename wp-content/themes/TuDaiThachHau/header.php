@@ -105,10 +105,5 @@
             </div>
         </nav>
     </header>
-    <div class="breadcrumbs">
-        <?php
-        if (function_exists('yoast_breadcrumb')) {
-            yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-        }
-        ?>
-    </div>
+
+    <?php get_template_part('content/breadcrumbs'); ?>
