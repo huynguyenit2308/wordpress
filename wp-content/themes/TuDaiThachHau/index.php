@@ -152,10 +152,6 @@
                     <?php get_template_part('content/tintuc'); ?>
 
                 </ul>
-            </div>
-
-            <!-- Lấy liên hệ -->
-            <?php get_template_part('content/formlienhe'); ?>
         </div>
     </div>
 </main>

@@ -313,3 +313,18 @@ nav.woocommerce-MyAccount-navigation {
     border: 1px solid rgb(203, 199, 199);
     padding: 20px;
 }
+
+.wpcf7-form {
+    text-align: center;
+    margin-top: 50px;
+}
+ .wpcf7-form-control{
+    width: 80%;
+    height: 40px;
+    margin: 10px;
+}
+
+.wpcf7-submit{
+    width: 200px;
+    margin-left: 100px;
+}
