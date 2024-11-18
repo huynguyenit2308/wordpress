@@ -98,4 +98,44 @@ function custom_remove_action_woo(){
 }
 add_action('init', 'custom_remove_action_woo');
 
+// Hủy đơn hàng
+function enable_user_cancel_order($statuses, $order) {
+    // Chỉ cho phép hủy khi đơn hàng đang ở trạng thái chờ xử lý hoặc đang chờ thanh toán
+    if ($order->has_status(array('pending', 'on-hold'))) {
+        $statuses[] = 'pending';
+        $statuses[] = 'on-hold';
+    }
+    return $statuses;
+}
+add_filter('woocommerce_valid_order_statuses_for_cancel', 'enable_user_cancel_order', 10, 2);
 
+
+function add_cancel_button_to_orders($actions, $order) {
+    // Chỉ hiển thị nút hủy khi trạng thái là 'pending' hoặc 'on-hold'
+    if ($order->has_status(array('pending', 'on-hold'))) {
+        $actions['cancel'] = array(
+            'url'  => $order->get_cancel_order_url(),
+            'name' => __('Hủy đơn hàng', 'woocommerce'),
+        );
+    }
+    return $actions;
+}
+add_filter('woocommerce_account_orders_actions', 'add_cancel_button_to_orders', 10, 2);
+
+add_action('woocommerce_order_cancelled', 'handle_cancelled_order');
+
+function handle_cancelled_order($order_id) {
+    $order = wc_get_order($order_id);
+
+    // Gửi email thông báo cho admin hoặc khách hàng
+    $admin_email = get_option('admin_email');
+    $user_email = $order->get_billing_email();
+    $subject = "Đơn hàng #{$order_id} đã bị hủy";
+    $message = "Đơn hàng #{$order_id} đã được hủy bởi khách hàng.";
+
+    // Gửi thông báo cho admin
+    wp_mail($admin_email, $subject, $message);
+
+    // Gửi thông báo cho khách hàng
+    wp_mail($user_email, "Xác nhận hủy đơn hàng", "Đơn hàng của bạn đã bị hủy thành công.");
+}
